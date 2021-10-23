@@ -30,7 +30,7 @@ This command will create a new module and add the new module to the solution.
 
 Now you can run the `MainApp.Web` and see the Api and UI available in the app.
 
-## Add new Entity to the ModuleOne
+## Add new Entity to the ModuleA
 
 We will create a new Entity inside the `MainApp.ModuleA.Domain` called `TodoOne`.
 
