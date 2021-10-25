@@ -39,7 +39,7 @@ We will create a new Entity inside the `MainApp.ModuleA.Domain` called `TodoOne`
 First step is to create an Entity. Create the Entity in the `MainApp.ModuleA.Domain` project.
 
 ```cs
-public class TodoOne : Entity<Guid>
+public class TodoOne : AuditedAggregateRoot<Guid>
 {
     public string Content { get; set; }
     public bool IsDone { get; set; }
@@ -56,7 +56,7 @@ public DbSet<TodoOne> TodoOnes { get; set; }
 
 ## 3. Configure Entity in [ef core](https://docs.abp.io/en/abp/latest/Entity-Framework-Core#configurebyconvention-method)
 
-Configuration is done in the `DbContextModelCreatingExtensions` class. This should be available in the `MainApp.ModuleA.EntityFrameworkCore` project
+Configuration is done in the `DbContextModelCreatingExtensions` class inside the `ConfigureModuleA` method. This should be available in the `MainApp.ModuleA.EntityFrameworkCore` project. `ConfigureModuleA` is invoked in the `MainAppDbContext`.
 
 ```cs
 builder.Entity<TodoOne>(b =>
@@ -153,19 +153,7 @@ public class TodoOneAppService : ModuleAAppService
 }
 ```
 
-## 8. Update `AddAbpDbContext` method in the `ModuleAEntityFrameworkCoreModule`
-
-```cs
-options.AddDefaultRepositories(includeAllEntities: true);
-```
-
-## 9. Update the `OnModelCreating` in the `MainAppDbContext` in the `MainApp.EntityFrameworkCore` project
-
-```cs
-builder.ConfigureModuleA();
-```
-
-## 10. Update the `ConfigureAutoApiControllers` in the `MainAppWebModule` in the `MainApp.Web`
+## 8. Update the `ConfigureAutoApiControllers` in the `MainAppWebModule` in the `MainApp.Web`
 
 ```cs
 Configure<AbpAspNetCoreMvcOptions>(options =>
@@ -173,3 +161,7 @@ Configure<AbpAspNetCoreMvcOptions>(options =>
                 options.ConventionalControllers.Create(typeof(ModuleAApplicationModule).Assembly);
             });
 ```
+
+## 9. Test you api
+
+Run the `MainApp.Web` project and navigate to `https://localhost:<port>/swagger/` you will see the todo apis. You can test your API there.
