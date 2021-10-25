@@ -39,7 +39,7 @@ We will create a new Entity inside the `MainApp.ModuleA.Domain` called `TodoOne`
 First step is to create an Entity. Create the Entity in the `MainApp.ModuleA.Domain` project.
 
 ```cs
-public class TodoOne : AuditedAggregateRoot<Guid>
+public class TodoOne : Entity<Guid>
 {
     public string Content { get; set; }
     public bool IsDone { get; set; }
