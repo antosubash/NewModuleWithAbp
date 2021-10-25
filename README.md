@@ -20,7 +20,7 @@ This will apply the migrations to the db and we can run the `MainApp.Web` projec
 
 ## Add a new Module
 
-Now we will add a new module to our MainApp
+Now we will add a new module to our MainApp. Navigate to the solution folder of the `MainApp` and run the following command
 
 ```bash
 abp add-module ModuleA --new --add-to-solution-file
@@ -153,7 +153,13 @@ public class TodoOneAppService : ModuleAAppService
 }
 ```
 
-## 8. Update the `ConfigureAutoApiControllers` in the `MainAppWebModule` in the `MainApp.Web`
+## 8. Update `AddAbpDbContext` method in the `ModuleAEntityFrameworkCoreModule`
+
+```cs
+options.AddDefaultRepositories(includeAllEntities: true);
+```
+
+## 9. Update the `ConfigureAutoApiControllers` in the `MainAppWebModule` in the `MainApp.Web`
 
 ```cs
 Configure<AbpAspNetCoreMvcOptions>(options =>
@@ -162,6 +168,6 @@ Configure<AbpAspNetCoreMvcOptions>(options =>
             });
 ```
 
-## 9. Test you api
+## 10. Test you api
 
 Run the `MainApp.Web` project and navigate to `https://localhost:<port>/swagger/` you will see the todo apis. You can test your API there.
