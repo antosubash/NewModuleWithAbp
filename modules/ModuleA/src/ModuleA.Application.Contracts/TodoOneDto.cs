@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Volo.Abp.Application.Dtos;
 
-namespace MainApp
+namespace ModuleA
 {
     public class TodoOneDto : EntityDto<Guid>
     {

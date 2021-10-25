@@ -185,10 +185,7 @@ namespace MainApp.Web
                 options.ConventionalControllers.Create(typeof(MainAppApplicationModule).Assembly);
             });
 
-            Configure<AbpAspNetCoreMvcOptions>(options =>
-            {
-                options.ConventionalControllers.Create(typeof(ModuleAApplicationModule).Assembly);
-            });
+            
         }
 
         private void ConfigureSwaggerServices(IServiceCollection services)

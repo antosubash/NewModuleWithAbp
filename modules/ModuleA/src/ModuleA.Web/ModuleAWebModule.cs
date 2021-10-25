@@ -9,6 +9,7 @@ using Volo.Abp.Modularity;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.VirtualFileSystem;
 using ModuleA.Permissions;
+using Volo.Abp.AspNetCore.Mvc;
 
 namespace ModuleA.Web
 {
@@ -53,6 +54,11 @@ namespace ModuleA.Web
             Configure<RazorPagesOptions>(options =>
             {
                 //Configure authorization.
+            });
+
+            Configure<AbpAspNetCoreMvcOptions>(options =>
+            {
+                options.ConventionalControllers.Create(typeof(ModuleAApplicationModule).Assembly);
             });
         }
     }

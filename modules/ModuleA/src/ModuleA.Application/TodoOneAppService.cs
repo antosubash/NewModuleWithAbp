@@ -1,14 +1,13 @@
-﻿using ModuleA;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Volo.Abp.Domain.Repositories;
 
-namespace MainApp
+namespace ModuleA
 {
-    public class TodoOneAppService : MainAppAppService
+    public class TodoOneAppService : ModuleAAppService
     {
         private readonly IRepository<TodoOne, Guid> todoOneRepository;
 

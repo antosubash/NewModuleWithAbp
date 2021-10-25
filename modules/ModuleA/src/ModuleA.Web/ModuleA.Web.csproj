@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ModuleA.Application\ModuleA.Application.csproj" />
     <ProjectReference Include="..\ModuleA.HttpApi\ModuleA.HttpApi.csproj" />
   </ItemGroup>
 
