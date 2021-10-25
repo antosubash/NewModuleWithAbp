@@ -112,7 +112,7 @@ CreateMap<TodoOneDto, TodoOne>();
 Application service are created in the `MainApp.ModuleA.Application` project
 
 ```cs
-public class TodoOneAppService : MainAppAppService
+public class TodoOneAppService : ModuleAAppService
 {
     private readonly IRepository<TodoOne, Guid> todoOneRepository;
 
