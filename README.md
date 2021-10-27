@@ -159,7 +159,7 @@ public class TodoOneAppService : ModuleAAppService
 options.AddDefaultRepositories(includeAllEntities: true);
 ```
 
-## 9. Update the `ConfigureAutoApiControllers` in the `MainAppWebModule` in the `MainApp.Web`
+## 9. Update the `ConfigureServices` in the `ModuleAWebModule` in the `ModuleA.Web`
 
 ```cs
 Configure<AbpAspNetCoreMvcOptions>(options =>
